@@ -19,10 +19,21 @@ const App = () => {
     todoInputRef.current.value = '';
   }
 
-  return (<form onSubmit={handleSubmit}>
-    <input ref={todoInputRef} type="text"></input>
-    <button>Submit</button>
-  </form>)
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>Enter task
+          <input ref={todoInputRef} type="text"></input>
+        </label>
+        <button>Submit</button>
+      </form>
+      {todos.length ? (
+        <ul>
+          {todos.map(todo => <li>{todo.text}</li>)}
+        </ul>
+      ) : null }
+    </>
+  )
 }
 
 export default App;
