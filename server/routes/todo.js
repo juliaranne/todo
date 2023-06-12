@@ -1,10 +1,10 @@
 const express = require("express"); //import express
 
-// 1.
 const router = express.Router();
-// 2.
-const teaController = require("../controllers/todo");
-// 3.
-router.post("/tea", teaController.newTea);
-// 4.
+const todoController = require("../controllers/todo");
+router.post("/todo", todoController.newTodo);
+router.get("/todos", todoController.getAllTodos);
+router.patch("/todo", todoController.updateOneTodo);
+router.delete("/todo", todoController.deleteOneTodo);
+
 module.exports = router; // export to use in server.js
