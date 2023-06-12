@@ -1,5 +1,5 @@
 require("dotenv").config();
-const express = require("express"); //import express
+const express = require("express");
 const app = express();
 const routes = require("./routes/todo");
 const mongoose = require("mongoose");

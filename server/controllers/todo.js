@@ -1,9 +1,23 @@
+const Todo = require("../models/todo");
+
 const getAllTodos = (req, res, next) => {
   res.json({ message: "GET all todos" });
 };
 
 const newTodo = (req, res, next) => {
-  res.json({ message: "POST new todo" }); // dummy function for now
+  const todo = new Todo({
+    text: req.body.text,
+    timestamp: new Date(),
+  });
+
+  todo
+    .save()
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      return res.json({ Error: err });
+    });
 };
 
 //PATCH '/todo/:id'
